@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحمة الله - المحروم جمعه إبراهيم فرج</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --deep-blue: #0f172a;
+            --dark-blue: #1e293b;
+            --gold-light: #f4d03f;
+            --gold-glow: #d4a347;
+            --white-soft: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #0f0f23 0%, #1e293b 50%, #1e3a5f 100%);
+        }
+        
+        * { font-family: 'Cairo', sans-serif; }
+        .quran { font-family: 'Amiri', serif; }
+        
+        body {
+            background: var(--bg-gradient);
+            color: #e2e8f0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Floating Rahma Lights */
+        .rahma-light {
+            position: fixed;
+            width: 6px; height: 6px;
+            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: rahmaFloat 18s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+        
+        /* Glass Effect */
+        .rahma-glass {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+        }
+        
+        /* Photo Frame Effect */
+        .photo-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 90px rgba(0,0,0,0.7),
+                0 0 60px rgba(244,208,63,0.3);
+            transition: all 0.5s ease;
+        }
+        .photo-frame:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 
+                0 40px 120px rgba(0,0,0,0.8),
+                0 0 80px rgba(244,208,63,0.5);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        .photo-frame:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav { 
+            transform: translateX(100%); 
+            transition: transform 0.4s ease; 
+        }
+        .mobile-nav.open { transform: translateX(0); }
+        
+        /* Smooth Animations */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        /* Quran Glow Effect */
+        .quran-glow {
+            text-shadow: 
+                0 0 20px rgba(244,208,63,0.6),
+                0 0 35px rgba(244,208,63,0.3);
+        }
+        
+        /* Name Glow Effect - محسن */
+        .main-name {
+            text-shadow: 
+                0 0 30px rgba(244,208,63,0.8),
+                0 0 50px rgba(244,208,63,0.5),
+                0 0 80px rgba(244,208,63,0.3),
+                2px 2px 4px rgba(0,0,0,0.5);
+            filter: drop-shadow(0 4px 12px rgba(244,208,63,0.4));
+            background: linear-gradient(45deg, #f4d03f, #ffffff, #d4a347, #f4d03f);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: nameGlow 3s ease-in-out infinite alternate;
+        }
+        
+        /* Contact Glow */
+        .contact-glow {
+            box-shadow: 0 0 25px rgba(244,208,63,0.4);
+            transition: all 0.3s ease;
+        }
+        .contact-glow:hover {
+            box-shadow: 0 0 35px rgba(244,208,63,0.7);
+            transform: translateY(-3px);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            text-shadow: 
+                0 0 25px rgba(244,208,63,0.7),
+                0 0 40px rgba(244,208,63,0.4);
+            background: linear-gradient(45deg, #f4d03f, #ffffff, #d4a347);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: nameGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes rahmaFloat {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+        
+        @keyframes nameGlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        @media (max-width: 640px) {
+            .photo-frame { width: 280px !important; height: 360px !important; }
+            .main-name { font-size: 2.5rem !important; }
+            .section-title { font-size: 2rem !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Lights -->
+    <div id="rahmaLights"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full rahma-glass z-50 px-4 py-4 shadow-2xl">
+        <div class="flex items-center justify-between max-w-4xl mx-auto">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-12 h-12 bg-gradient-to-br from-gold-glow to-gold-light rounded-2xl flex items-center justify-center shadow-xl">
+                    <i class="fas fa-mosque text-xl text-gray-900"></i>
+                </div>
+                <span class="text-xl font-bold bg-gradient-to-r from-gold-glow to-white-soft bg-clip-text text-transparent">
+                    رحمة الله
+                </span>
+            </div>
+            <button id="mobileMenuBtn" class="text-2xl text-gold-glow p-2 rounded-xl hover:bg-gold-glow/20 transition-all">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-nav fixed right-0 top-0 h-full w-72 bg-gradient-to-b from-rahma-glass to-dark-blue z-40 p-8 shadow-2xl">
+        <div class="flex justify-between items-center mb-12">
+            <span class="text-2xl font-bold text-gold-glow quran-glow">القائمة</span>
+            <button id="closeMenu" class="text-2xl text-gray-300 hover:text-gold-glow p-2 rounded-xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="space-y-6">
+            <a href="#home" class="block py-4 px-6 rounded-2xl bg-white/10 hover:bg-gold-glow/20 transition-all text-lg font-bold flex items-center">
+                <i class="fas fa-home mr-3 text-gold-glow"></i>الرئيسية
+            </a>
+            <a href="#duaa" class="block py-4 px-6 rounded-2xl bg-white/10 hover:bg-gold-glow/20 transition-all text-lg font-bold flex items-center">
+                <i class="fas fa-praying-hands mr-3 text-gold-glow"></i>دعاء للمتوفى
+            </a>
+            <a href="#quran" class="block py-4 px-6 rounded-2xl bg-white/10 hover:bg-gold-glow/20 transition-all text-lg font-bold flex items-center">
+                <i class="fas fa-book-quran mr-3 text-gold-glow"></i>القرآن الكريم
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-4 text-center relative z-10">
+        <!-- الصورة الشخصية - تأخذ شكلها الأصلي مع إطار فخم -->
+        <div class="photo-frame w-80 h-96 md:w-96 md:h-[450px] mb-12 fade-in relative overflow-hidden">
+            <!-- ضع الصورة هنا -->
+            <img src="photo.jpg" alt="المحروم جمعه إبراهيم فرج" class="w-full h-full object-cover">
+            <!-- تأثير إطار ذهبي -->
+            <div class="absolute inset-0 bg-gradient-to-r from-gold-glow/30 via-transparent to-gold-glow/30 opacity-0 hover:opacity-100 transition-all duration-500"></div>
+            <!-- تأثير توهج داخلي -->
+            <div class="absolute inset-4 border-4 border-gold-glow/50 rounded-3xl"></div>
+        </div>
+        
+        <!-- الاسم ظاهر بتوهج قوي -->
+        <h1 class="main-name font-black text-4xl md:text-6xl mb-12 fade-in quran-glow">
+            المحروم جمعه إبراهيم فرج
+        </h1>
+        
+        <div class="quran text-2xl md:text-3xl mb-12 p-8 rahma-glass rounded-4xl shadow-3xl max-w-2xl fade-in quran-glow">
+            <div class="font-bold mb-6 leading-relaxed">﴿يَارْبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ خَيْرُ الرَّاحِمِينَ﴾</div>
+            <div class="text-lg font-bold text-gold-glow bg-gradient-to-r from-dark-blue to-deep-blue px-6 py-3 rounded-2xl inline-block">
+                سورة المؤمنون: ١١٨
+            </div>
+        </div>
+
+        <div class="text-xl md:text-2xl font-bold text-white-soft mb-12 fade-in">
+            <span class="block mb-2">رحمك الله وأسكنك فسيح جناته</span>
+            <span class="text-gold-glow block text-3xl">اللهم اغفر له وارحمه</span>
+        </div>
+    </section>
+
+    <!-- Duaa Section -->
+    <section id="duaa" class="py-24 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="section-title font-black text-3xl md:text-5xl mb-16 text-center fade-in">دعاء للمتوفى</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="rahma-glass p-8 rounded-4xl fade-in">
+                    <div class="text-2xl font-bold mb-6 quran-glow text-center">الدعاء الأول</div>
+                    <div class="quran text-xl leading-relaxed mb-6">
+                        اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ وَاعْفُ عَنْهُ، وَأَكْرِمْ نُزُلَهُ
+                    </div>
+                    <button onclick="copyDuaa(1)" class="w-full bg-gold-glow/20 hover:bg-gold-glow/40 text-gray-900 font-bold py-3 px-6 rounded-2xl transition-all">
+                        <i class="fas fa-copy mr-2"></i>نسخ الدعاء
+                    </button>
+                </div>
+                
+                <div class="rahma-glass p-8 rounded-4xl fade-in">
+                    <div class="text-2xl font-bold mb-6 quran-glow text-center">الدعاء الثاني</div>
+                    <div class="quran text-xl leading-relaxed mb-6">
+                        اللَّهُمَّ اسْتُرْ عَوْرَاتَهِ وَآمِنْ رَوْعَتَهُ وَأَوْسِعْ لَهُ فِي مَقَامِهِ
+                    </div>
+                    <button onclick="copyDuaa(2)" class="w-full bg-gold-glow/20 hover:bg-gold-glow/40 text-gray-900 font-bold py-3 px-6 rounded-2xl transition-all">
+                        <i class="fas fa-copy mr-2"></i>نسخ الدعاء
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quran Section -->
+    <section id="quran" class="py-24 px-4 pb-32">
+        <div class="max-w-3xl mx-auto"> 
+            <h2 class="section-title font-black text-3xl md:text-5xl mb-16 text-center fade-in">آيات من القرآن الكريم</h2>
+            
+            <div class="space-y-8">
+                <div class="rahma-glass p-10 rounded-4xl fade-in">
+                    <div class="text-2xl font-bold mb-6 quran-glow text-center">سورة الزمر</div>
+                    <div class="quran text-2xl leading-relaxed mb-8 text-center">
+                        ﴿إِنَّ اللَّهَ لَا يَظْلِمُ مِثْقَالَ ذَرَّةٍ ۖ وَإِنْ تَكُ خَيْرًا يُضَاعِفْهُ﴾
+                    </div>
+                    <div class="text-center text-lg font-bold text-gold-glow">الآية ٥٣</div>
+                </div>
+                
+                <div class="rahma-glass p-10 rounded-4xl fade-in">
+                    <div class="text-2xl font-bold mb-6 quran-glow text-center">سورة البقرة</div>
+                    <div class="quran text-2xl leading-relaxed mb-8 text-center">
+                        ﴿وَالَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ هُمْ أَصْحَابُ الْجَنَّةِ﴾
+                    </div>
+                    <div class="text-center text-lg font-bold text-gold-glow">الآية ٨٢</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer class="py-12 px-4 bg-gradient-to-r from-dark-blue to-deep-blue relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="rahma-glass inline-block p-6 rounded-4xl mb-8 contact-glow">
+                <div class="text-2xl font-bold text-gold-glow mb-4 quran-glow">
+                    <i class="fas fa-phone mr-3"></i>للتواصل
+                </div>
+                <div class="text-lg text-gray-300 mt-2">Eng/Aboelftoh</div>
+                <div class="text-xl font-bold text-white-soft">01024730375</div>
+            </div>
+            
+            <div class="text-lg text-gray-400">
+                <p>نسأل الله أن يتقبل منا ومنكم • رحم الله المتوفى وغفر له</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating lights
+        function createRahmaLights() {
+            const container = document.getElementById('rahmaLights');
+            for (let i = 0; i < 15; i++) {
+                const light = document.createElement('div');
+                light.className = 'rahma-light';
+                light.style.left = Math.random() * 100 + '%';
+                light.style.animationDelay = `-${Math.random() * 18}s`;
+                light.style.animationDuration = (15 + Math.random() * 8) + 's';
+                container.appendChild(light);
+            }
+        }
+
+        // Mobile menu
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        document.getElementById('closeMenu').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(link.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth', block: 'start'
+                });
+                document.getElementById('mobileMenu').classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Copy duaa
+        function copyDuaa(num) {
+            let duaa = num === 1 ? 
+                "اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ، وَعَافِهِ وَاعْفُ عَنْهُ" : 
+                "اللَّهُمَّ اسْتُرْ عَوْرَاتَهِ وَآمِنْ رَوْعَتَهُ";
+            
+            navigator.clipboard.writeText(duaa).then(() => {
+                alert('تم نسخ الدعاء بنجاح 📋');
+            });
+        }
+
+        // Fade in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), index * 200);
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Initialize
+        window.addEventListener('load', () => {
+            createRahmaLights();
+        });
+    </script>
+</body>
+</html>
